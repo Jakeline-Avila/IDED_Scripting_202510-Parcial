@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TestProject1
 {
@@ -6,10 +7,43 @@ namespace TestProject1
     {
         internal static uint StackFirstPrime(Stack<uint> stack)
         {
+             {
+            Stack<uint> temp = new Stack<uint>();
+            uint firstPrime = 0;
+            bool found = false;
 
-            
-            return 0;
+            while (stack.Count > 0 && !found)
+            {
+                uint num = stack.Pop();
+                temp.Push(num);
+
+                if (num > 1)
+                {
+                    bool isPrime = true;
+                    for (uint i = 2; i <= Math.Sqrt(num); i++)
+                    {
+                        if (num % i == 0)
+                        {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+
+                    if (isPrime)
+                    {
+                        firstPrime = num;
+                        found = true;
+                    }
+                }
+            }
+
+            while (temp.Count > 0)
+                stack.Push(temp.Pop());
+
+            return firstPrime;
         }
+        }
+      
 
         internal static Stack<uint> RemoveFirstPrime(Stack<uint> stack)
         {
@@ -77,7 +111,32 @@ namespace TestProject1
 
         internal static bool FoundElementAfterSorted(List<int> list, int value)
         {
-            return false;
+             
+        for (int i = 0; i < list.Count - 1; i++)
+    {
+        int minIndex = i;
+        for (int j = i + 1; j < list.Count; j++)
+        {
+            if (list[j] < list[minIndex])
+                minIndex = j;
+        }
+
+        if (minIndex != i)
+        {
+            int temp = list[i];
+            list[i] = list[minIndex];
+            list[minIndex] = temp;
+        }
+    }
+
+   
+        for (int i = 0; i < list.Count; i++)
+    {
+        if (list[i] == value)
+            return true;
+    }
+
+        return false;
         }
     }
 }
