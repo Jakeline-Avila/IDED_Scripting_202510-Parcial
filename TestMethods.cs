@@ -7,42 +7,41 @@ namespace TestProject1
     {
         internal static uint StackFirstPrime(Stack<uint> stack)
         {
-             {
-            Stack<uint> temp = new Stack<uint>();
-            uint firstPrime = 0;
-            bool found = false;
+              Stack<uint> temp = new Stack<uint>();
+    uint firstPrime = 0;
+    bool found = false;
 
-            while (stack.Count > 0 && !found)
+    while (stack.Count > 0 && !found)
+    {
+        uint num = stack.Pop();
+        temp.Push(num);
+
+        if (num > 1)
+        {
+            bool isPrime = true;
+            for (uint i = 2; i * i <= num; i++)   // <- sin Math.Sqrt
             {
-                uint num = stack.Pop();
-                temp.Push(num);
-
-                if (num > 1)
+                if (num % i == 0)
                 {
-                    bool isPrime = true;
-                    for (uint i = 2; i <= Math.Sqrt(num); i++)
-                    {
-                        if (num % i == 0)
-                        {
-                            isPrime = false;
-                            break;
-                        }
-                    }
-
-                    if (isPrime)
-                    {
-                        firstPrime = num;
-                        found = true;
-                    }
+                    isPrime = false;
+                    break;
                 }
             }
 
-            while (temp.Count > 0)
-                stack.Push(temp.Pop());
+            if (isPrime)
+            {
+                firstPrime = num;
+                found = true;
+            }
+        }
+    }
 
-            return firstPrime;
-        }
-        }
+    // Restaurar la pila a su estado original
+    while (temp.Count > 0)
+        stack.Push(temp.Pop());
+
+    return firstPrime;
+    }
       
 
         internal static Stack<uint> RemoveFirstPrime(Stack<uint> stack)

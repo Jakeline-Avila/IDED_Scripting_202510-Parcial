@@ -8,26 +8,26 @@ namespace TestProject1
         {
                
     {
-            // Pila para probar RemoveFirstPrime, CreateQueueFromStack y StackToList
+         
             var pila = new Stack<uint>(new uint[] { 2, 34, 67, 89, 12, 45, 78, 56, 23, 90, 14, 38 });
 
             Console.WriteLine("Pila original (TOP -> BOTTOM):");
             foreach (var n in pila) Console.Write(n + " ");
             Console.WriteLine();
 
-            // --- Probar RemoveFirstPrime ---
+        
             TestMethods.RemoveFirstPrime(pila);
             Console.WriteLine("\nDespués de RemoveFirstPrime:");
             foreach (var n in pila) Console.Write(n + " ");
             Console.WriteLine();
 
-            // --- Probar CreateQueueFromStack ---
+          
             var cola = TestMethods.CreateQueueFromStack(pila);
             Console.WriteLine("\nCola creada desde la pila:");
             foreach (var n in cola) Console.Write(n + " ");
             Console.WriteLine();
 
-            // --- Probar StackToList ---
+   
             var listaPila = TestMethods.StackToList(pila);
             Console.WriteLine("\nLista creada desde la pila:");
             foreach (var n in listaPila) Console.Write(n + " ");
