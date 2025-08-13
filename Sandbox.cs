@@ -26,7 +26,7 @@ namespace TestProject1
             foreach (var n in listaPila) Console.Write(n + " ");
             Console.WriteLine();
 
-                var listaEnteros = new List<int> { -50, 23, 87, -12, 4, 95, -66, 8, 32, -71, 42, -18 };
+                    var listaEnteros = new List<int> { -50, 23, 87, -12, 4, 95, -66, 8, 32, -71, 42, -18 };
             Console.WriteLine("FoundElementAfterSorted (42): " + TestMethods.FoundElementAfterSorted(listaEnteros, 42));
             Console.WriteLine("Lista ordenada:");
             foreach (var n in listaEnteros) Console.Write(n + " ");
