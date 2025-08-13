@@ -6,12 +6,46 @@ namespace TestProject1
     {
         internal static uint StackFirstPrime(Stack<uint> stack)
         {
+
+            
             return 0;
         }
 
         internal static Stack<uint> RemoveFirstPrime(Stack<uint> stack)
         {
-            return null;
+             if (stack == null || stack.Count == 0) return stack;
+
+   
+        bool IsPrime(uint n)
+    {
+        if (n < 2) return false;
+        for (uint d = 2; d * d <= n; d++)
+            if (n % d == 0) return false;
+        return true;
+    }
+
+     var temp = new Stack<uint>();
+        bool removed = false;
+
+    
+        while (stack.Count > 0)
+     {
+        uint x = stack.Pop();
+        if (!removed && IsPrime(x))
+        {
+            removed = true;            
+        }
+        else
+        {
+            temp.Push(x);
+        }
+    }
+
+
+    while (temp.Count > 0)
+        stack.Push(temp.Pop());
+
+    return stack;
         }
 
         internal static Queue<uint> CreateQueueFromStack(Stack<uint> stack)
