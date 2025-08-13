@@ -19,7 +19,7 @@ namespace TestProject1
         if (num > 1)
         {
             bool isPrime = true;
-            for (uint i = 2; i * i <= num; i++)   // <- sin Math.Sqrt
+            for (uint i = 2; i * i <= num; i++)  
             {
                 if (num % i == 0)
                 {
@@ -36,7 +36,7 @@ namespace TestProject1
         }
     }
 
-    // Restaurar la pila a su estado original
+   
     while (temp.Count > 0)
         stack.Push(temp.Pop());
 
