@@ -50,12 +50,29 @@ namespace TestProject1
 
         internal static Queue<uint> CreateQueueFromStack(Stack<uint> stack)
         {
-            return null;
+
+             var queue = new Queue<uint>();
+    
+        foreach (var item in stack) 
+        {
+        queue.Enqueue(item);
+         }
+    
+    return queue;
+          
         }
 
         internal static List<uint> StackToList(Stack<uint> stack)
         {
-            return null;
+             var list = new List<uint>(stack.Count);
+
+        foreach (var item in stack) 
+        {
+        list.Add(item);
+        }
+
+        return list;
+         
         }
 
         internal static bool FoundElementAfterSorted(List<int> list, int value)
